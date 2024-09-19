@@ -1,6 +1,5 @@
 const dotenv = require('dotenv').config();
-
-const MongoClient = require('mongodb').MongoClient;
+const { MongoClient } = require('mongodb');
 
 let contactsData;
 
@@ -11,7 +10,7 @@ const initDb = (callback) => {
     }
     MongoClient.connect(process.env.MONGODB_URL)
         .then((client) => {
-            contactsData = client;
+            contactsData = client.db();
             callback(null, contactsData);
         })
         .catch((err) => {
@@ -26,7 +25,4 @@ const getContactsData = () => {
     return contactsData;
 };
 
-module.exports = {
-    initDb,
-    getContactsData
-};
+module.exports = { initDb, getContactsData };
