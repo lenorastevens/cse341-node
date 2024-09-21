@@ -1,0 +1,28 @@
+### Localhost Routes
+
+# Home Page Message Screen
+http://localhost:8080
+
+# Get all contacts
+GET http://localhost:8080/contacts
+
+# Get a specific contact by ID
+GET http://localhost:8080/contacts/66eb808194acf0e55fcfb1f3
+
+# Get a specific contact by ID
+GET http://localhost:8080/contacts/66ee47e451de745f6b97cd7c
+
+
+### Published Routes
+
+# Home Page Message Screen
+https://cse341-contacts-project-ep1p.onrender.com/
+
+# Get all contacts
+GET https://cse341-contacts-project-ep1p.onrender.com/contacts
+
+# Get a specific contact by ID
+GET https://cse341-contacts-project-ep1p.onrender.com/contacts/66eb808194acf0e55fcfb1f3
+
+# Get a specific contact by ID
+GET https://cse341-contacts-project-ep1p.onrender.com/contacts/66ee47e451de745f6b97cd7c
