@@ -1,8 +1,8 @@
 const express = require('express');
-const mongodb = require('./data/contacts');
+const mongodb = require('./data/contactsDb');
 const app = express();
 
-const port = 8080;
+const port = process.env.PORT || 8080;
 
 app.use('/', require('./routes'));
 
@@ -11,8 +11,8 @@ mongodb.initDb((err) => {
     console.log(err);
   }
   else {
-    app.listen(process.env.PORT || port, () => {
-      console.log('Database is listening at port ' + (process.env.PORT || port));
+    app.listen(port, () => {
+      console.log('Database is listening at port ' + (port));
     });
   }
 });
