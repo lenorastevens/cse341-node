@@ -4,25 +4,25 @@
 GET http://localhost:8080
 
 # Get all contacts
-GET http://localhost:8080/contacts
+GET http://localhost:8080/professional
 
 # Get a specific contact by ID
-GET http://localhost:8080/contacts/66eb808194acf0e55fcfb1f3
+GET http://localhost:8080/professional/66eb2c7a94acf0e55fcfb1f2
 
 # Get a specific contact by ID
-GET http://localhost:8080/contacts/66ee47e451de745f6b97cd7c
+GET http://localhost:8080/professional/66ef447751de745f6b97cd7d
 
 
 ### Published Routes
 
 # Home Page Message Screen
-GET https://cse341-contacts-project-ep1p.onrender.com
+GET https://professionals-project.onrender.com
 
 # Get all contacts
-GET https://cse341-contacts-project-ep1p.onrender.com/contacts
+GET https://professionals-project.onrender.com/professional
 
 # Get a specific contact by ID
-GET https://cse341-contacts-project-ep1p.onrender.com/contacts/66eb808194acf0e55fcfb1f3
+GET https://professionals-project.onrender.com/professional/66eb2c7a94acf0e55fcfb1f2
 
 # Get a specific contact by ID
-GET https://cse341-contacts-project-ep1p.onrender.com/contacts/66ee47e451de745f6b97cd7c
+GET https://professionals-project.onrender.com/professional/66ef447751de745f6b97cd7d
