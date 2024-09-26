@@ -3,9 +3,10 @@ const swaggerAutogen = require('swagger-autogen')();
 const doc = {
   info: {
     title: 'My Contacts API',
-    description: 'Description'
+    description: 'Project for BYU-I Fall CSE 341 class.',
+    author: 'Lenora Stevens'
   },
-  host: 'localhost:8080',
+  host: 'https://cse341-contacts-project-ep1p.onrender.com',
   schemes: [ 'http' ],
 };
 
