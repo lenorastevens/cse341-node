@@ -7,11 +7,16 @@
     "start": "node server.js",
     "swagger": "node ./swagger.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lenorastevens/cse341-node/tree/main/Contacts-Project"
+  },
   "keywords": [],
-  "author": "",
+  "author": "Lenora Stevens",
   "license": "ISC",
-  "description": "",
+  "description": "Project for BYU-I Fall CSE 341 class.",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.21.0",
     "mongodb": "^6.9.0",
