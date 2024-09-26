@@ -2,6 +2,7 @@ const mongodb = require('../data/contactsDb');
 const { ObjectId } = require('mongodb');
 
 const getAll = async (req, res) => {
+    //#swagger.tags=['Contacts']
     const result = await mongodb.getContactsData().collection('contacts').find();
     result.toArray().then((contacts) => {
         res.setHeader('Content-Type', 'application/json');
@@ -10,6 +11,7 @@ const getAll = async (req, res) => {
 };
 
 const getSingle = async (req, res) => {
+    //#swagger.tags=['Contacts']
     const userId = ObjectId.createFromHexString(req.params.id);
     const result = await mongodb.getContactsData().collection('contacts').find({ _id: userId });
     result.toArray().then((contacts) => {
