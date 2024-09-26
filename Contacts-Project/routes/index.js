@@ -7,9 +7,7 @@ const router = require('express').Router();
 router.use('/contacts', require('./contacts'));
 
 router.use('/', (docData = (req, res) => {
-  let docData = {
-    documentationURL: 'https://cse341-contacts-project-ep1p.onrender.com/api-docs',
-  };
+  let docData = "documentationURL: https://cse341-contacts-project-ep1p.onrender.com/api-docs";
   res.send(docData);
 })
 );
