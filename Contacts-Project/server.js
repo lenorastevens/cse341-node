@@ -2,9 +2,15 @@ const express = require('express');
 const mongodb = require('./data/contactsDb');
 const app = express();
 
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.json');
+
 const port = process.env.PORT || 8080;
 
-app.use('/', require('./routes'));
+app
+  .use(express.json())
+  .use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
+  .use('/', require('./routes'));
 
 mongodb.initDb((err) => {
   if(err) {

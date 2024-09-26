@@ -1,28 +1,75 @@
-### Localhost Routes
+# Localhost Routes
 
 # Home Page Message Screen
 GET http://localhost:8080
 
-# Get all contacts
-GET http://localhost:8080/professional
+### Get all contacts
+GET http://localhost:8080/contacts
 
-# Get a specific contact by ID
-GET http://localhost:8080/professional/66eb2c7a94acf0e55fcfb1f2
+### Get a specific contact by ID
+GET http://localhost:8080/contacts/66eb808194acf0e55fcfb1f3
 
-# Get a specific contact by ID
-GET http://localhost:8080/professional/66ef447751de745f6b97cd7d
+### Create Contact
+POST http://localhost:8080/contacts HTTP/1.1
+Content-Type: application/json
 
+{
+    "firstName": "Tom",
+    "lastName": "Stevens",
+    "email": "husbandOfStudent@byui.edu",
+    "favoriteColor": "green",
+    "birthday": "Dec 1, 1972"
+}
+
+### PUT Contact
+PUT http://localhost:8080/contacts/66f496bea5c7f8d92e6ff45f HTTP/1.1
+Content-Type: application/json
+
+{
+    "firstName": "Ben",
+    "lastName": "Stevens",
+    "email": "OldestSon@byui.edu",
+    "favoriteColor": "aqua",
+    "birthday": "Feb 29, 2000"
+}
+
+### DELETE Contact
+DELETE http://localhost:8080/contacts/66f590d4cf0418a3a22103e0
 
 ### Published Routes
 
 # Home Page Message Screen
-GET https://professionals-project.onrender.com
+GET https://cse341-contacts-project-ep1p.onrender.com
 
-# Get all contacts
-GET https://professionals-project.onrender.com/professional
+### Get all contacts
+GET https://cse341-contacts-project-ep1p.onrender.com/contacts
 
-# Get a specific contact by ID
-GET https://professionals-project.onrender.com/professional/66eb2c7a94acf0e55fcfb1f2
+### Get a specific contact by ID
+GET https://cse341-contacts-project-ep1p.onrender.com/contacts/66eb808194acf0e55fcfb1f3
 
-# Get a specific contact by ID
-GET https://professionals-project.onrender.com/professional/66ef447751de745f6b97cd7d
+### Create Contact
+POST https://cse341-contacts-project-ep1p.onrender.com/contacts HTTP/1.1
+Content-Type: application/json
+
+{
+    "firstName": "Tom",
+    "lastName": "Stevens",
+    "email": "husbandOfStudent@byui.edu",
+    "favoriteColor": "green",
+    "birthday": "Dec 1, 1972"
+}
+
+### PUT Contact
+PUT https://cse341-contacts-project-ep1p.onrender.com/contacts/66f496bea5c7f8d92e6ff45f HTTP/1.1
+Content-Type: application/json
+
+{
+    "firstName": "Ben",
+    "lastName": "Stevens",
+    "email": "OldestSon@byui.edu",
+    "favoriteColor": "aqua",
+    "birthday": "Feb 29, 2000"
+}
+
+### DELETE Contact
+DELETE https://cse341-contacts-project-ep1p.onrender.com/contacts/66f590d4cf0418a3a22103e0
