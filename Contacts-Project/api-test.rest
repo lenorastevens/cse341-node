@@ -18,7 +18,7 @@ Content-Type: application/json
     "lastName": "Stevens",
     "email": "husbandOfStudent@byui.edu",
     "favoriteColor": "green",
-    "birthday": "Dec 1, 1972"
+    "birthday": "Dec 12, 1975"
 }
 
 ### PUT Contact
@@ -30,11 +30,14 @@ Content-Type: application/json
     "lastName": "Stevens",
     "email": "OldestSon@byui.edu",
     "favoriteColor": "aqua",
-    "birthday": "Feb 29, 2000"
+    "birthday": "Feb 01, 2000"
 }
 
 ### DELETE Contact
-DELETE http://localhost:8080/contacts/66f590d4cf0418a3a22103e0
+DELETE http://localhost:8080/contacts/66f6d27e377886b7871e5cc5
+
+
+
 
 ### Published Routes
 
@@ -45,7 +48,7 @@ GET https://cse341-contacts-project-ep1p.onrender.com
 GET https://cse341-contacts-project-ep1p.onrender.com/contacts
 
 ### Get a specific contact by ID
-GET https://cse341-contacts-project-ep1p.onrender.com/contacts/66eb808194acf0e55fcfb1f3
+GET https://cse341-contacts-project-ep1p.onrender.com/contacts/66f496bea5c7f8d92e6ff45f
 
 ### Create Contact
 POST https://cse341-contacts-project-ep1p.onrender.com/contacts HTTP/1.1
@@ -56,7 +59,7 @@ Content-Type: application/json
     "lastName": "Stevens",
     "email": "husbandOfStudent@byui.edu",
     "favoriteColor": "green",
-    "birthday": "Dec 1, 1972"
+    "birthday": "Dec 1, 1974"
 }
 
 ### PUT Contact
@@ -66,10 +69,10 @@ Content-Type: application/json
 {
     "firstName": "Ben",
     "lastName": "Stevens",
-    "email": "OldestSon@byui.edu",
+    "email": "secondOldestSon@byui.edu",
     "favoriteColor": "aqua",
-    "birthday": "Feb 29, 2000"
+    "birthday": "Feb 15, 2001"
 }
 
 ### DELETE Contact
-DELETE https://cse341-contacts-project-ep1p.onrender.com/contacts/66f590d4cf0418a3a22103e0
+DELETE https://cse341-contacts-project-ep1p.onrender.com/contacts/66f6d45871c0cdf1fa13fbad
