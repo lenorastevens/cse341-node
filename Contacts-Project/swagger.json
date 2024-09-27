@@ -6,10 +6,10 @@
     "author": "Lenora Stevens",
     "version": "1.0.0"
   },
-  "host": "https://cse341-contacts-project-ep1p.onrender.com",
+  "host": "cse341-contacts-project-ep1p.onrender.com",
   "basePath": "/",
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
     "/contacts/": {
