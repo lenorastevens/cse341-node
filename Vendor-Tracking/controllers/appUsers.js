@@ -3,52 +3,65 @@ const ObjectId = require('mongodb').ObjectId;
 
 const getAllUsers = async (req, res) => {
     //#swagger.tags=['App Users']
-    const result = await mongodb.getVendorDb().collection('appUsers').find();
-    result.toArray().then((appUsers) => {
+    try {    
+        const appUsers = await mongodb
+            .getVendorDb()
+            .collection('appUsers')
+            .find()
+            .toArray()
+
         res.setHeader('Content-Type', 'application/json');
         res.status(200).json(appUsers);
-    });
-    // mongodb
-    //     .getVendorDb()
-    //     .collection('appUsers')
-    //     .find()
-    //     .toArray((err, appUsers) => {
-    //         if (err) {
-    //             res.status(400).json({ message:err })
-    //         }
-    //         res.setHeader('Content-Type', 'application/json');
-    //         res.status(200).json(appUsers);
-    //     });
+
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
 };
 
-const getSingleUsers = async (req, res) => {
+const getSingleUser = async (req, res) => {
     //#swagger.tags=['App Users']
-    const result = await mongodb.getVendorDb().collection('appUsers').find();
-    result.toArray().then((appUsers) => {
-        res.setHeader('Content-Type', 'application/json');
-        res.status(200).json(appUsers);
-    });
+    try {
+        if (!ObjectId.isValid(req.params.id)) {
+            return res.status(400).json('Must use a valid app user id to find a user.');
+        } 
 
-    // if (!ObjectId.isValid(req.param.id)) {
-    //     res.status(400).json('Must use a valid vendor id to find a vendor.');
-    // }  
-    // const userId = ObjectId.createFromHexString(req.params.id);
-    // mongodb
-    //     .getVendorDb()
-    //     .collection('appUsers')
-    //     .find( { _id: userId })
-    //     .toArray((err, result) => {
-    //         if (err) {
-    //             res.status(400).json({ message:err })
-    //         }
-    //         res.setHeader('Content-Type', 'application/json');
-    //         res.status(200).json(result[0]);
-    //     });
+        const appUserId = new ObjectId(req.params.id);
+
+        const appUser = await mongodb
+            .getVendorDb()
+            .collection('appUsers')
+            .findOne( { _id: appUserId });
+
+        if (!appUser) {
+            return res.status(404).json('App user not found.');
+        }     
+
+        res.setHeader('Content-Type', 'application/json');
+        return res.status(200).json(appUser);
+
+    } catch (err) {
+        return res.status(500).json({ message: err.message });
+    }
+
 };
 
-// const createAppUsers = async (req, res) => {
+const createAppUser = async (req, res) => {
+    //#swagger.tags=['App Users']
+    const appUser = {
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        phone: req.body.phone
+    };
 
-// };
+    const response = await mongodb.getVendorDb().collection('appUsers').insertOne(appUser);
+    if (response.acknowledged) {
+        res.status(201).json(response);
+    } else {
+        res.status(500).json(response.error || 'An error occured while adding the app user.')
+    }
+
+};
 
 // const updateAppUsers = async (req, res) => {
 
@@ -60,8 +73,8 @@ const getSingleUsers = async (req, res) => {
 
 module.exports = {
     getAllUsers,
-    getSingleUsers
-    // createAppUsers,
+    getSingleUser,
+    createAppUser
     // updateAppUsers,
     // deleteAppUsers
 }

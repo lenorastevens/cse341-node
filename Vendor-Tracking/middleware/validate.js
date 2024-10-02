@@ -1,4 +1,5 @@
 const validator = require('../helpers/validate');
+
 const saveVendor = (req, res, next) => {
     const validationRule = {
         vendorName: "required|string",
@@ -9,7 +10,7 @@ const saveVendor = (req, res, next) => {
         streetAddress: "required|string",
         city: "required|string",
         state: "required|string",
-        zipCode: "required|int32",
+        zipCode: "required|integer",
         notes: "string"
     };
 
@@ -26,6 +27,30 @@ const saveVendor = (req, res, next) => {
         }
     });
 };
+
+const saveAppUser = (req, res, next) => {
+    const validationRule = {
+        firstName: "required|string",
+        lastName: "required|string",
+        email: "required|string|email",
+        phone: "required|string"
+    };
+
+    validator(req.body, validationRule, {}, (err, status) => {
+        if (!status) {
+            res.status(412)
+                .send({
+                    success: false,
+                    message: 'Validation failed',
+                    data: err
+                });
+        } else {
+            next();
+        }
+    });
+}
+
 module.exports = {
-    saveVendor
+    saveVendor,
+    saveAppUser
 };

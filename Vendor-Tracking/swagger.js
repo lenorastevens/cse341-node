@@ -3,9 +3,11 @@ const swaggerAutogen = require('swagger-autogen')();
 const doc = {
   info: {
     title: 'Vendor Tracking API',
-    description: 'API for app users to track Vendors'
+    description: 'API for app users to track Vendors',
+    author: 'Lenora Stevens'
   },
-  host: 'vendor-tracking.onrender.com',
+  // host: 'vendor-tracking.onrender.com',
+  host: 'locoalhost:8080',
   schemes: ['https']
 };
 

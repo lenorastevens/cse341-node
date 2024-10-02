@@ -15,7 +15,7 @@ Content-Type: application/json
   "contact": "Sarah Johnson",
   "position": "Marketing Director",
   "contactPhone": "987-654-3210",
-  "contactEmail": "sarah.johnson",
+  "contactEmail": "sarah.johnson@xyx.com",
   "streetAddress": "456 Oak Avenu",
   "city": "Smallville",
   "state": "Texas",
@@ -29,7 +29,16 @@ GET http://localhost:8080/appUsers
 ### Get a Single App User with the ID
 GET http://localhost:8080/appUsers/66fc97be169249918d78bf63
 
+### Create App User
+POST http://localhost:8080/appUsers HTTP/1.1
+Content-Type: application/json
 
+{
+  "firstName": "Lenora",
+  "lastName": "Stevens",
+  "email": "LS@any.com",
+  "phone": "999-888-7777"
+}
 
 
 // RENDER LINKS

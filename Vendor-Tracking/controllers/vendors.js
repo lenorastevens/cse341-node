@@ -3,51 +3,45 @@ const ObjectId = require('mongodb').ObjectId;
 
 const getAllVendors = async (req, res) => {
     //#swagger.tags=['Vendors']
-    // const result = await mongodb.getVendorDb().collection('vendors').find();
-    // result.toArray().then((vendors) => {
-    //     res.setHeader('Content-Type', 'application/json');
-    //     res.status(200).json(vendors);
-    // });
+    try {
+        const vendors = await mongodb
+            .getVendorDb()
+            .collection('vendors')
+            .find()
+            .toArray();
+        
+        res.setHeader('Content-Type', 'application/json');
+        res.status(200).json(vendors);
 
-
-    mongodb
-        .getVendorDb()
-        .collection('vendors')
-        .find()
-        .toArray((err, vendors) => {
-            if (err) {
-                res.status(400).json({message:err});
-            }
-            res.setHeader('Content-Type', 'application/json');
-            res.status(200).json(vendors);
-        });
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
 };
 
 const getSingleVendor = async (req, res) => {
     //#swagger.tags=['Vendors']
-    // const userId = ObjectId.createFromHexString(req.params.id);
-    // const result = await mongodb.getVendorDb().collection('vendors').find();
-    // result.toArray().then((vendors) => {
-    //     res.setHeader('Content-Type', 'application/json');
-    //     res.status(200).json(vendors[0]);
-    // });
+    try {
+        if (!ObjectId.isValid(req.params.id)) {
+            return res.status(400).json('Must use a valid vendor id to find a vendor.');
+        }  
 
+        const vendorId = new ObjectId(req.params.id);
 
-    if (!ObjectId.isValid(req.params.id)) {
-        res.status(400).json('Must use a valid vendor id to find a vendor.');
-    }  
-    const userId = ObjectId.createFromHexString(req.params.id);
-    mongodb
-        .getVendorDb()
-        .collection('vendors')
-        .find( { _id: userId })
-        .toArray((err, result) => {
-            if (err) {
-                res.status(400).json({ message:err })
-            }
-            res.setHeader('Content-Type', 'application/json');
-            res.status(200).json(result[0]);
-        });
+        const vendor = await mongodb
+            .getVendorDb()
+            .collection('vendors')
+            .findOne({ _id: vendorId });
+
+        if (!vendor) {
+            return res.status(404).json('Vendor not found.');
+        }        
+
+        res.setHeader('Content-Type', 'application/json');
+        res.status(200).json(vendor);
+
+    } catch (err) {
+        return res.status(500).json({ message: err.message });
+    }    
 };
 
 const createVendor = async (req, res) => {
@@ -68,7 +62,7 @@ const createVendor = async (req, res) => {
     if (response.acknowledged) {
         res.status(201).json(response);
     } else {
-        res.status(500).json(response.error || 'Some error occured while updating the vendor.');
+        res.status(500).json(response.error || 'Some error occured while adding the vendor.');
     }
 };
 

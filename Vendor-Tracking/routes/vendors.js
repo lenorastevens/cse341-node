@@ -8,6 +8,6 @@ router.get('/', vendorsController.getAllVendors);
 
 router.get('/:id', vendorsController.getSingleVendor);
 
-router.post('/',validation.saveVendor, vendorsController.createVendor);
+router.post('/', validation.saveVendor, vendorsController.createVendor);
 
 module.exports = router;
