@@ -15,7 +15,7 @@ Content-Type: application/json
   "contact": "Sarah Johnson",
   "position": "Marketing Director",
   "contactPhone": "987-654-3210",
-  "contactEmail": "sarah.johnson@xyzcorp.com",
+  "contactEmail": "sarah.johnson",
   "streetAddress": "456 Oak Avenu",
   "city": "Smallville",
   "state": "Texas",
