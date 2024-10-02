@@ -5,12 +5,12 @@ const doc = {
     title: 'Vendor Tracking API',
     description: 'API for app users to track Vendors'
   },
-  host: 'localhost:8080',
-  schemes: ['http']
+  host: 'vendor-tracking.onrender.com',
+  schemes: ['https']
 };
 
 const outputFile = './swagger.json';
-const endpointsFiles = ['./routes/index.js'];
+const routes = ['./routes/index.js'];
 
 // generate swagger.json
-swaggerAutogen(outputFile, endpointsFiles, doc);
+swaggerAutogen(outputFile, routes, doc);

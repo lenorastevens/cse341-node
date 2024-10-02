@@ -3,15 +3,19 @@ const cors = require('cors');
 const mongodb = require('./db/vendorTrackingDb');
 const app = express();
 
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.json');
+
 const port = process.env.PORT || 8080;
 
 app
     .use(cors())
     .use(express.json())
-    .use((req, res, next) => {
-        res.setHeader('Access-Control-Allow-Origin', '*');
-        next();
-      })
+    .use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
+    // .use((req, res, next) => {
+    //     res.setHeader('Access-Control-Allow-Origin', '*');
+    //     next();
+    //   })
     .use('/', require('./routes'));
 
 process.on('uncaughtException', (err, origin) => {

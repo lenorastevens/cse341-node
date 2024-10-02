@@ -5,10 +5,10 @@
     "description": "API for app users to track Vendors",
     "version": "1.0.0"
   },
-  "host": "localhost:8080",
+  "host": "vendor-tracking.onrender.com",
   "basePath": "/",
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
     "/api-docs": {

@@ -1,0 +1,29 @@
+// LOCALHOST 
+
+### Get All Vendors
+GET http://localhost:8080/vendors
+
+### Get Single Vendor
+GET http://localhost:8080/vendors/66fc9ac0169249918d78bf64
+
+### Get all App Users
+GET http://localhost:8080/appUsers 
+
+### Get a Single App User with the ID
+GET http://localhost:8080/appUsers/66fc97be169249918d78bf63
+
+
+
+// RENDER LINKS
+
+### Get All Vendors Live Link
+GET https://vendor-tracking.onrender.com/vendors
+
+### Get a Single Vendor with the ID
+GET https://vendor-tracking.onrender.com/vendors/66fc9ac0169249918d78bf64
+
+### Get All App Users
+GET https://vendor-tracking.onrender.com/appUsers
+
+### Get a Single App Users with the ID
+GET https://vendor-tracking.onrender.com/appUsers/66fc97be169249918d78bf63
