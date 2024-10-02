@@ -55,7 +55,7 @@
                   "example": "any"
                 },
                 "contactEmail": {
-                  "example": "any"
+                  "example": "any@any.com"
                 },
                 "streetAddress": {
                   "example": "any"
@@ -67,7 +67,7 @@
                   "example": "any"
                 },
                 "zipCode": {
-                  "example": "any"
+                  "example": 12345
                 },
                 "notes": {
                   "example": "any"
@@ -159,7 +159,7 @@
                   "example": "any"
                 },
                 "email": {
-                  "example": "any"
+                  "example": "any@any.com"
                 },
                 "phone": {
                   "example": "any"
