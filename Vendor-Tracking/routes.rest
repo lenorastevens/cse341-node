@@ -1,10 +1,10 @@
-// LOCALHOST 
+// LOCALHOST -Vendors
 
 ### Get All Vendors
 GET http://localhost:8080/vendors
 
-### Get Single Vendor
-GET http://localhost:8080/vendors/66fc9ac0169249918d78bf64
+### Get Single Vendors
+GET http://localhost:8080/vendors/66fddd383b61ee03925210ec
 
 ### Create Vendor
 POST http://localhost:8080/vendors HTTP/1.1
@@ -22,6 +22,11 @@ Content-Type: application/json
   "zipCode": 54321,
   "notes": "Need flyers for front desk."
 }
+
+### Delete Vendor
+DELETE http://localhost:8080/vendors/66fddd383b61ee03925210ec
+
+# LOCALHOST -App Users
 
 ### Get all App Users
 GET http://localhost:8080/appUsers 

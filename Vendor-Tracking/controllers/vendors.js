@@ -1,3 +1,4 @@
+const { response } = require('express');
 const mongodb = require('../db/vendorTrackingDb');
 const ObjectId = require('mongodb').ObjectId;
 
@@ -70,14 +71,33 @@ const createVendor = async (req, res) => {
 
 // };
 
-// const deleteVendor = async (req, res) => {
-    
-// };
+const deleteVendor = async (req, res) => {
+    try {
+        if (!ObjectId.isValid(req.params.id)) {
+            return res.status(400).json('Must use a valid vendor id to find a vendor.');
+        }
+        
+        const vendorId = new ObjectId(req.params.id);
+
+        const result = await mongodb
+            .getVendorDb()
+            .collection('vendors')
+            .deleteOne({ _id: vendorId }, true);
+            
+        if (result.deletedCount > 0) {
+            res.status(204).send();
+        } else {
+            res.status(500).json(result.error || 'An error occurred while deleting the vendor.');
+        }     
+    } catch (err) {
+        return res.status(500).json({ message: err.message });
+    } 
+};
 
 module.exports = {
     getAllVendors,
     getSingleVendor,
-    createVendor
+    createVendor,
     // updateVendor,
-    // deleteVendor
+    deleteVendor
 }

@@ -10,4 +10,6 @@ router.get('/:id', vendorsController.getSingleVendor);
 
 router.post('/', validation.saveVendor, vendorsController.createVendor);
 
+router.delete('/:id', vendorsController.deleteVendor);
+
 module.exports = router;
