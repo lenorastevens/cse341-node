@@ -33,7 +33,7 @@ const getSingleVendor = async (req, res) => {
     // });
 
 
-    if (!ObjectId.isValid(req.param.id)) {
+    if (!ObjectId.isValid(req.params.id)) {
         res.status(400).json('Must use a valid vendor id to find a vendor.');
     }  
     const userId = ObjectId.createFromHexString(req.params.id);
