@@ -7,4 +7,6 @@ router.get('/', vendorsController.getAllVendors);
 
 router.get('/:id', vendorsController.getSingleVendor);
 
+router.post('/', vendorsController.createVendor);
+
 module.exports = router;

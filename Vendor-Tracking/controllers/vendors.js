@@ -50,9 +50,27 @@ const getSingleVendor = async (req, res) => {
     //     });
 };
 
-// const createVendor = async (req, res) => {
-
-// };
+const createVendor = async (req, res) => {
+    //#swagger.tags=['Vendors']
+    const vendor = {
+        vendorName: req.body.vendorName,
+        contact: req.body.contact,
+        position: req.body.position,
+        contactPhone: req.body.contactPhone,
+        contactEmail: req.body.contactEmail,
+        streetAddress: req.body.streetAddress,
+        city: req.body.city,
+        state: req.body.state,
+        zipCode: req.body.zipCode,
+        notes: req.body.notes
+    };
+    const response = await mongodb.getVendorDb().collection('vendors').insertOne(vendor);
+    if (response.acknowledged) {
+        res.status(201).json(response);
+    } else {
+        res.status(500).json(response.error || 'Some error occured while updating the vendor.');
+    }
+};
 
 // const updateVendor = async (req, res) => {
 
@@ -64,8 +82,8 @@ const getSingleVendor = async (req, res) => {
 
 module.exports = {
     getAllVendors,
-    getSingleVendor
-    // createVendor,
+    getSingleVendor,
+    createVendor
     // updateVendor,
     // deleteVendor
 }
