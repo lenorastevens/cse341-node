@@ -55,7 +55,7 @@ const createVendor = async (req, res) => {
         contactEmail: req.body.contactEmail,
         streetAddress: req.body.streetAddress,
         city: req.body.city,
-        state: req.body.state,
+        stateCode: req.body.state,
         zipCode: req.body.zipCode,
         notes: req.body.notes
     };
@@ -84,7 +84,7 @@ const updateVendor = async (req, res) => {
             contactEmail: req.body.contactEmail,
             streetAddress: req.body.streetAddress,
             city: req.body.city,
-            state: req.body.state,
+            stateCode: req.body.stateCode,
             zipCode: req.body.zipCode,
             notes: req.body.notes
         };

@@ -64,7 +64,7 @@
                   "example": "any"
                 },
                 "state": {
-                  "example": "any"
+                  "example": "TX"
                 },
                 "zipCode": {
                   "example": 12345
@@ -114,7 +114,7 @@
             "description": "Bad Request"
           },
           "404": {
-            "description": "Not Found"
+            "description": "Vendor Not Found"
           },
           "500": {
             "description": "Internal Server Error"
@@ -140,34 +140,34 @@
               "type": "object",
               "properties": {
                 "vendorName": {
-                  "example": "any"
+                  "example": "Anytime Fitness"
                 },
                 "contact": {
-                  "example": "any"
+                  "example": "Somebody"
                 },
                 "position": {
-                  "example": "any"
+                  "example": "Buyer"
                 },
                 "contactPhone": {
-                  "example": "111-222-3333"
+                  "example": "444-555-6666"
                 },
                 "contactEmail": {
-                  "example": "any@any.com"
+                  "example": "Somebody@anytime.com"
                 },
                 "streetAddress": {
-                  "example": "any"
+                  "example": "123 Nowhere"
                 },
                 "city": {
-                  "example": "any"
+                  "example": "Outer Banks"
                 },
-                "state": {
-                  "example": "any"
+                "stateCode": {
+                  "example": "AL"
                 },
                 "zipCode": {
-                  "example": 12345
+                  "example": "55221"
                 },
                 "notes": {
-                  "example": "any"
+                  "example": "Print sample cans"
                 }
               }
             }
@@ -254,7 +254,7 @@
                   "example": "any@any.com"
                 },
                 "phone": {
-                  "example": "111-222-3333"
+                  "example": "111-222-333"
                 }
               }
             }
@@ -324,16 +324,16 @@
               "type": "object",
               "properties": {
                 "firstName": {
-                  "example": "any"
+                  "example": "Ethan"
                 },
                 "lastName": {
-                  "example": "any"
+                  "example": "Ryan"
                 },
                 "email": {
-                  "example": "any@any.com"
+                  "example": "er@myemail.com"
                 },
                 "phone": {
-                  "example": "111-222-3333"
+                  "example": "555-222-7777"
                 }
               }
             }
