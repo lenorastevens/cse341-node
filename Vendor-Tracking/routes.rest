@@ -18,7 +18,7 @@ Content-Type: application/json
   "contactEmail": "sarah.johnson@xyx.com",
   "streetAddress": "456 Oak Avenu",
   "city": "Smallville",
-  "state": "Texas",
+  "stateCode": "TX",
   "zipCode": 54321,
   "notes": "Need flyers for front desk."
 }
@@ -35,7 +35,7 @@ Content-Type: application/json
   "contactEmail": "v.johnson@xyx.com",
   "streetAddress": "456 Oak Avenue",
   "city": "Smallville",
-  "state": "Texas",
+  "stateCode": "TX",
   "zipCode": 54321,
   "notes": "Need flyers for front desk."
 }
@@ -84,7 +84,7 @@ DELETE http://localhost:8080/appUsers/66fdeebf893263f131ee59dc
 GET https://vendor-tracking.onrender.com/vendors
 
 ### Get a Single Vendor with the ID
-GET https://vendor-tracking.onrender.com/vendors/66fddfa9c185afdfc60f9695
+GET https://vendor-tracking.onrender.com/vendors/66fc9ac0169249918d78bf64
 
 ### Create Vendor
 POST https://vendor-tracking.onrender.com/vendors HTTP/1.1
@@ -98,26 +98,26 @@ Content-Type: application/json
   "contactEmail": "sarah.johnson@xyx.com",
   "streetAddress": "456 Oak Avenu",
   "city": "Smallville",
-  "state": "Texas",
+  "stateCode": "TX",
   "zipCode": 54321,
   "notes": "Need flyers for front desk."
 }
 
 ### Update Vendor
-PUT https://vendor-tracking.onrender.com/vendors/66fddfa9c185afdfc60f9695 HTTP/1.1
+PUT https://vendor-tracking.onrender.com/vendors/66fc9ac0169249918d78bf64 HTTP/1.1
 Content-Type: application/json
 
 {
-  "vendorName": "XYX Fitness",
-  "contact": "Sarah Johnson",
-  "position": "Marketing Director",
-  "contactPhone": "987-654-3210",
-  "contactEmail": "sarah.johnson@xyx.com",
-  "streetAddress": "456 Oak Avenu",
-  "city": "Smallville",
-  "state": "Texas",
-  "zipCode": 54321,
-  "notes": "Need flyers for front desk."
+  "vendorName": "ABC Gym",
+  "contact": "John Smith",
+  "position": "Sales Manager",
+  "contactPhone": "123-987-5640",
+  "contactEmail": "john.smith@abccompany.com",
+  "streetAddress": "123 Main Street",
+  "city": "Anytown",
+  "stateCode": "CA",
+  "zipCode": 12345,
+  "notes": "Demo on Friday"
 }
 
 ### Delete Vendor
