@@ -49,23 +49,34 @@ DELETE http://localhost:8080/vendors/66fddd383b61ee03925210ec
 GET http://localhost:8080/appUsers 
 
 ### Get a Single App User with the ID
-GET http://localhost:8080/appUsers/66fde3548005f51071e2967f
+GET http://localhost:8080/appUsers/66fdeebf893263f131ee59dc
 
 ### Create App User
 POST http://localhost:8080/appUsers HTTP/1.1
 Content-Type: application/json
 
 {
-  "firstName": "Lenora",
+  "firstName": "Brandon",
   "lastName": "Stevens",
-  "email": "LS@any.com",
+  "email": "BS@any.com",
   "phone": "999-888-7777"
 }
 
 ### Update App User
+PUT http://localhost:8080/appUsers/66fdeebf893263f131ee59dc HTTP/1.1
+Content-Type: application/json
+
+{
+  "firstName": "Connor",
+  "lastName": "Stevens",
+  "email": "CS@any.com",
+  "phone": "999-888-7777"
+}
 
 ### Delete App User
-DELETE http://localhost:8080/appUsers/66fde3548005f51071e2967f
+DELETE http://localhost:8080/appUsers/66fdeebf893263f131ee59dc
+
+
 
 // RENDER LINKS - Vendors
 
@@ -113,26 +124,36 @@ Content-Type: application/json
 DELETE https://vendor-tracking.onrender.com/vendors/66fddfa9c185afdfc60f9695
 
 
+
 # RENDER LINKS - App Users
 
 ### Get All App Users
 GET https://vendor-tracking.onrender.com/appUsers
 
 ### Get a Single App Users with the ID
-GET https://vendor-tracking.onrender.com/appUsers/66fc97be169249918d78bf63
+GET https://vendor-tracking.onrender.com/appUsers/66fdef53b8827680a75a905f
 
 ### Create App User
 POST https://vendor-tracking.onrender.com/appUsers HTTP/1.1
 Content-Type: application/json
 
 {
-  "firstName": "Lenora",
+  "firstName": "Connie",
   "lastName": "Stevens",
-  "email": "LS@any.com",
+  "email": "CS@any.com",
   "phone": "999-888-7777"
 }
 
 ### Update App User
+PUT https://vendor-tracking.onrender.com/appUsers/66fdef53b8827680a75a905f HTTP/1.1
+Content-Type: application/json
+
+{
+  "firstName": "Ethan",
+  "lastName": "Stevens",
+  "email": "ES@any.com",
+  "phone": "999-888-7777"
+}
 
 ### Delete Vendor
 DELETE https://vendor-tracking.onrender.com/appUsers/66fc97be169249918d78bf63

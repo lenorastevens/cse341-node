@@ -63,10 +63,38 @@ const createAppUser = async (req, res) => {
 
 };
 
-// const updateAppUsers = async (req, res) => {
+const updateAppUser = async (req, res) => {
     //#swagger.tags=['App Users']
+    try {
+        if (!ObjectId.isValid(req.params.id)) {
+            return res.status(400).json('Must use a valid app user id to find user.');
+        }
 
-// };
+        const appUserId = new ObjectId(req.params.id);
+
+        const appUser = {
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            email: req.body.email,
+            phone: req.body.phone
+        };
+
+        const result = await mongodb
+            .getVendorDb()
+            .collection('appUsers')
+            .replaceOne({ _id: appUserId }, appUser);
+        console.log(result);
+        if (result.modifiedCount > 0) {
+            res.status(204).send();
+        } else {
+            res.status(500).json(result.error || 'An error occurred while updating the app user.');
+        }
+
+    } catch (err) {
+        return res.status(500).json({ message: err.message });
+    }
+
+};
 
 const deleteAppUser = async (req, res) => {
     // #swagger.tags=['App Users']
@@ -96,6 +124,6 @@ module.exports = {
     getAllUsers,
     getSingleUser,
     createAppUser,
-    // updateAppUsers,
+    updateAppUser,
     deleteAppUser
 }
