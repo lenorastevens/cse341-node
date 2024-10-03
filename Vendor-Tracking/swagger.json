@@ -23,7 +23,7 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Vendors Listed"
           },
           "500": {
             "description": "Internal Server Error"
@@ -78,7 +78,7 @@
         ],
         "responses": {
           "201": {
-            "description": "Created"
+            "description": "Vendor Created"
           },
           "412": {
             "description": "Precondition Failed"
@@ -108,7 +108,7 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Vendor Found"
           },
           "400": {
             "description": "Bad Request"
@@ -175,7 +175,7 @@
         ],
         "responses": {
           "204": {
-            "description": "No Content"
+            "description": "Vendor Updated"
           },
           "400": {
             "description": "Bad Request"
@@ -203,7 +203,7 @@
         ],
         "responses": {
           "204": {
-            "description": "No Content"
+            "description": "Vendor Deleted"
           },
           "400": {
             "description": "Bad Request"
@@ -225,7 +225,7 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "User Listed"
           },
           "500": {
             "description": "Internal Server Error"
@@ -262,7 +262,7 @@
         ],
         "responses": {
           "201": {
-            "description": "Created"
+            "description": "User Created"
           },
           "412": {
             "description": "Precondition Failed"
@@ -292,7 +292,7 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "User Found"
           },
           "400": {
             "description": "Bad Request"
@@ -341,7 +341,7 @@
         ],
         "responses": {
           "204": {
-            "description": "No Content"
+            "description": "User Updated"
           },
           "400": {
             "description": "Bad Request"
@@ -369,7 +369,7 @@
         ],
         "responses": {
           "204": {
-            "description": "No Content"
+            "description": "User Deleted"
           },
           "400": {
             "description": "Bad Request"

@@ -25,7 +25,7 @@ const getSingleUser = async (req, res) => {
             return res.status(400).json('Must use a valid app user id to find a user.');
         } 
 
-        const appUserId = new ObjectId(req.params.id);
+        const appUserId = ObjectId.createFromHexString(req.params.id);
 
         const appUser = await mongodb
             .getVendorDb()
@@ -70,7 +70,7 @@ const updateAppUser = async (req, res) => {
             return res.status(400).json('Must use a valid app user id to find user.');
         }
 
-        const appUserId = new ObjectId(req.params.id);
+        const appUserId = ObjectId.createFromHexString(req.params.id);
 
         const appUser = {
             firstName: req.body.firstName,
@@ -83,7 +83,7 @@ const updateAppUser = async (req, res) => {
             .getVendorDb()
             .collection('appUsers')
             .replaceOne({ _id: appUserId }, appUser);
-        console.log(result);
+            
         if (result.modifiedCount > 0) {
             res.status(204).send();
         } else {
@@ -103,7 +103,7 @@ const deleteAppUser = async (req, res) => {
             return res.status(400).json('Must use a valid app user id to find user.');
         }
 
-        const appUserId = new ObjectId(req.params.id);
+        const appUserId = ObjectId.createFromHexString(req.params.id);
 
         const result = await mongodb
             .getVendorDb()

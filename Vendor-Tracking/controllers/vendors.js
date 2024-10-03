@@ -26,7 +26,7 @@ const getSingleVendor = async (req, res) => {
             return res.status(400).json('Must use a valid vendor id to find a vendor.');
         }  
 
-        const vendorId = new ObjectId(req.params.id);
+        const vendorId = ObjectId.createFromHexString(req.params.id);
 
         const vendor = await mongodb
             .getVendorDb()
@@ -74,7 +74,7 @@ const updateVendor = async (req, res) => {
             return res.status(400).json('Must use a valid vendor id to find a vendor.');
         }
         
-        const vendorId = new ObjectId(req.params.id);
+        const vendorId = ObjectId.createFromHexString(req.params.id);
 
         const vendor = {
             vendorName: req.body.vendorName,
@@ -93,7 +93,7 @@ const updateVendor = async (req, res) => {
             .getVendorDb()
             .collection('vendors')
             .replaceOne({ _id: vendorId }, vendor);
-        console.log(result);
+            
         if (result.modifiedCount > 0) {
             res.status(204).send();
         } else {
@@ -113,7 +113,7 @@ const deleteVendor = async (req, res) => {
             return res.status(400).json('Must use a valid vendor id to find a vendor.');
         }
         
-        const vendorId = new ObjectId(req.params.id);
+        const vendorId = ObjectId.createFromHexString(req.params.id);
 
         const result = await mongodb
             .getVendorDb()

@@ -4,7 +4,7 @@
 GET http://localhost:8080/vendors
 
 ### Get Single Vendors
-GET http://localhost:8080/vendors/66fdbcf971f575fb48af3707
+GET http://localhost:8080/vendors/66feee3c76c26dc77e015e55
 
 ### Create Vendor
 POST http://localhost:8080/vendors HTTP/1.1
@@ -24,24 +24,24 @@ Content-Type: application/json
 }
 
 ### Update Vendor
-PUT http://localhost:8080/vendors/66fdbcf971f575fb48af3707 HTTP/1.1
+PUT http://localhost:8080/vendors/66feee3c76c26dc77e015e55 HTTP/1.1
 Content-Type: application/json
 
 {
-  "vendorName": "XYX Fitness",
-  "contact": "Mike Johnson",
+  "vendorName": "Dex Fitness",
+  "contact": "Venessa Johnson",
   "position": "Marketing Director",
   "contactPhone": "987-654-3210",
-  "contactEmail": "mike.johnson@xyx.com",
-  "streetAddress": "456 Oak Avenu",
+  "contactEmail": "v.johnson@xyx.com",
+  "streetAddress": "456 Oak Avenue",
   "city": "Smallville",
   "state": "Texas",
   "zipCode": 54321,
-  "notes": "Received flyers for front desk."
+  "notes": "Need flyers for front desk."
 }
 
 ### Delete Vendor
-DELETE http://localhost:8080/vendors/66fddd383b61ee03925210ec
+DELETE http://localhost:8080/vendors/66feee3c76c26dc77e015e55
 
 # LOCALHOST -App Users
 
