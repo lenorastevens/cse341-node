@@ -52,10 +52,10 @@
                   "example": "any"
                 },
                 "contactPhone": {
-                  "example": "any"
+                  "example": "111-222-3333"
                 },
                 "contactEmail": {
-                  "example": "any"
+                  "example": "any@any.com"
                 },
                 "streetAddress": {
                   "example": "any"
@@ -67,7 +67,7 @@
                   "example": "any"
                 },
                 "zipCode": {
-                  "example": "any"
+                  "example": 12345
                 },
                 "notes": {
                   "example": "any"
@@ -149,10 +149,10 @@
                   "example": "any"
                 },
                 "contactPhone": {
-                  "example": "any"
+                  "example": "111-222-3333"
                 },
                 "contactEmail": {
-                  "example": "any"
+                  "example": "any@any.com"
                 },
                 "streetAddress": {
                   "example": "any"
@@ -164,7 +164,7 @@
                   "example": "any"
                 },
                 "zipCode": {
-                  "example": "any"
+                  "example": 12345
                 },
                 "notes": {
                   "example": "any"
@@ -251,10 +251,10 @@
                   "example": "any"
                 },
                 "email": {
-                  "example": "any"
+                  "example": "any@any.com"
                 },
                 "phone": {
-                  "example": "any"
+                  "example": "111-222-3333"
                 }
               }
             }
@@ -330,10 +330,10 @@
                   "example": "any"
                 },
                 "email": {
-                  "example": "any"
+                  "example": "any@any.com"
                 },
                 "phone": {
-                  "example": "any"
+                  "example": "111-222-3333"
                 }
               }
             }
