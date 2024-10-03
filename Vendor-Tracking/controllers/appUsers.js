@@ -20,11 +20,11 @@ const getAllUsers = async (req, res) => {
 
 const getSingleUser = async (req, res) => {
     //#swagger.tags=['App Users']
-    try {
-        if (!ObjectId.isValid(req.params.id)) {
-            return res.status(400).json('Must use a valid app user id to find a user.');
-        } 
+    if (!ObjectId.isValid(req.params.id)) {
+        return res.status(400).json('Must use a valid app user id to find a user.');
+    }
 
+    try {
         const appUserId = ObjectId.createFromHexString(req.params.id);
 
         const appUser = await mongodb
@@ -65,11 +65,11 @@ const createAppUser = async (req, res) => {
 
 const updateAppUser = async (req, res) => {
     //#swagger.tags=['App Users']
-    try {
-        if (!ObjectId.isValid(req.params.id)) {
-            return res.status(400).json('Must use a valid app user id to find user.');
-        }
+    if (!ObjectId.isValid(req.params.id)) {
+        return res.status(400).json('Must use a valid app user id to find user.');
+    }
 
+    try {
         const appUserId = ObjectId.createFromHexString(req.params.id);
 
         const appUser = {
@@ -83,7 +83,7 @@ const updateAppUser = async (req, res) => {
             .getVendorDb()
             .collection('appUsers')
             .replaceOne({ _id: appUserId }, appUser);
-            
+
         if (result.modifiedCount > 0) {
             res.status(204).send();
         } else {
@@ -98,11 +98,11 @@ const updateAppUser = async (req, res) => {
 
 const deleteAppUser = async (req, res) => {
     // #swagger.tags=['App Users']
+    if (!ObjectId.isValid(req.params.id)) {
+        return res.status(400).json('Must use a valid app user id to find user.');
+    }
+    
     try {
-        if (!ObjectId.isValid(req.params.id)) {
-            return res.status(400).json('Must use a valid app user id to find user.');
-        }
-
         const appUserId = ObjectId.createFromHexString(req.params.id);
 
         const result = await mongodb

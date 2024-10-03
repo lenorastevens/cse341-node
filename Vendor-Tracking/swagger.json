@@ -225,7 +225,7 @@
         ],
         "responses": {
           "200": {
-            "description": "User Listed"
+            "description": "App Users Listed"
           },
           "500": {
             "description": "Internal Server Error"
@@ -262,7 +262,7 @@
         ],
         "responses": {
           "201": {
-            "description": "User Created"
+            "description": "App User Created"
           },
           "412": {
             "description": "Precondition Failed"
@@ -292,7 +292,7 @@
         ],
         "responses": {
           "200": {
-            "description": "User Found"
+            "description": "App User Found"
           },
           "400": {
             "description": "Bad Request"
@@ -341,7 +341,7 @@
         ],
         "responses": {
           "204": {
-            "description": "User Updated"
+            "description": "App User Updated"
           },
           "400": {
             "description": "Bad Request"
@@ -369,7 +369,7 @@
         ],
         "responses": {
           "204": {
-            "description": "User Deleted"
+            "description": "App User Deleted"
           },
           "400": {
             "description": "Bad Request"

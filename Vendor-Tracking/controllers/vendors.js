@@ -21,11 +21,11 @@ const getAllVendors = async (req, res) => {
 
 const getSingleVendor = async (req, res) => {
     //#swagger.tags=['Vendors']
+    if (!ObjectId.isValid(req.params.id)) {
+        return res.status(400).json('Must use a valid vendor id to find a vendor.');
+    }
+    
     try {
-        if (!ObjectId.isValid(req.params.id)) {
-            return res.status(400).json('Must use a valid vendor id to find a vendor.');
-        }  
-
         const vendorId = ObjectId.createFromHexString(req.params.id);
 
         const vendor = await mongodb
@@ -69,11 +69,11 @@ const createVendor = async (req, res) => {
 
 const updateVendor = async (req, res) => {
     //#swagger.tags=['Vendors']
+    if (!ObjectId.isValid(req.params.id)) {
+        return res.status(400).json('Must use a valid vendor id to find a vendor.');
+    }
+
     try {
-        if (!ObjectId.isValid(req.params.id)) {
-            return res.status(400).json('Must use a valid vendor id to find a vendor.');
-        }
-        
         const vendorId = ObjectId.createFromHexString(req.params.id);
 
         const vendor = {
@@ -93,7 +93,7 @@ const updateVendor = async (req, res) => {
             .getVendorDb()
             .collection('vendors')
             .replaceOne({ _id: vendorId }, vendor);
-            
+
         if (result.modifiedCount > 0) {
             res.status(204).send();
         } else {
@@ -108,11 +108,11 @@ const updateVendor = async (req, res) => {
 
 const deleteVendor = async (req, res) => {
     //#swagger.tags=['Vendors']
-    try {
-        if (!ObjectId.isValid(req.params.id)) {
-            return res.status(400).json('Must use a valid vendor id to find a vendor.');
-        }
-        
+    if (!ObjectId.isValid(req.params.id)) {
+        return res.status(400).json('Must use a valid vendor id to find a vendor.');
+    }
+
+    try {        
         const vendorId = ObjectId.createFromHexString(req.params.id);
 
         const result = await mongodb
