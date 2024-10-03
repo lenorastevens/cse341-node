@@ -4,7 +4,7 @@
 GET http://localhost:8080/vendors
 
 ### Get Single Vendors
-GET http://localhost:8080/vendors/66fddd383b61ee03925210ec
+GET http://localhost:8080/vendors/66fdbcf971f575fb48af3707
 
 ### Create Vendor
 POST http://localhost:8080/vendors HTTP/1.1
@@ -24,6 +24,21 @@ Content-Type: application/json
 }
 
 ### Update Vendor
+PUT http://localhost:8080/vendors/66fdbcf971f575fb48af3707 HTTP/1.1
+Content-Type: application/json
+
+{
+  "vendorName": "XYX Fitness",
+  "contact": "Mike Johnson",
+  "position": "Marketing Director",
+  "contactPhone": "987-654-3210",
+  "contactEmail": "mike.johnson@xyx.com",
+  "streetAddress": "456 Oak Avenu",
+  "city": "Smallville",
+  "state": "Texas",
+  "zipCode": 54321,
+  "notes": "Received flyers for front desk."
+}
 
 ### Delete Vendor
 DELETE http://localhost:8080/vendors/66fddd383b61ee03925210ec
@@ -78,9 +93,26 @@ Content-Type: application/json
 }
 
 ### Update Vendor
+PUT https://vendor-tracking.onrender.com/vendors/66fddfa9c185afdfc60f9695 HTTP/1.1
+Content-Type: application/json
+
+{
+  "vendorName": "XYX Fitness",
+  "contact": "Sarah Johnson",
+  "position": "Marketing Director",
+  "contactPhone": "987-654-3210",
+  "contactEmail": "sarah.johnson@xyx.com",
+  "streetAddress": "456 Oak Avenu",
+  "city": "Smallville",
+  "state": "Texas",
+  "zipCode": 54321,
+  "notes": "Need flyers for front desk."
+}
 
 ### Delete Vendor
 DELETE https://vendor-tracking.onrender.com/vendors/66fddfa9c185afdfc60f9695
+
+
 # RENDER LINKS - App Users
 
 ### Get All App Users
