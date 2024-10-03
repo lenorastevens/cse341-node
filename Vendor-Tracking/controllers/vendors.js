@@ -68,10 +68,12 @@ const createVendor = async (req, res) => {
 };
 
 // const updateVendor = async (req, res) => {
+    //#swagger.tags=['Vendors']
 
 // };
 
 const deleteVendor = async (req, res) => {
+    //#swagger.tags=['Vendors']
     try {
         if (!ObjectId.isValid(req.params.id)) {
             return res.status(400).json('Must use a valid vendor id to find a vendor.');
@@ -83,7 +85,7 @@ const deleteVendor = async (req, res) => {
             .getVendorDb()
             .collection('vendors')
             .deleteOne({ _id: vendorId }, true);
-            
+
         if (result.deletedCount > 0) {
             res.status(204).send();
         } else {

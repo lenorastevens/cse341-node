@@ -64,17 +64,38 @@ const createAppUser = async (req, res) => {
 };
 
 // const updateAppUsers = async (req, res) => {
+    //#swagger.tags=['App Users']
 
 // };
 
-// const deleteAppUsers = async (req, res) => {
-    
-// };
+const deleteAppUser = async (req, res) => {
+    // #swagger.tags=['App Users']
+    try {
+        if (!ObjectId.isValid(req.params.id)) {
+            return res.status(400).json('Must use a valid app user id to find user.');
+        }
+
+        const appUserId = new ObjectId(req.params.id);
+
+        const result = await mongodb
+            .getVendorDb()
+            .collection('appUsers')
+            .deleteOne({ _id: appUserId }, true);
+        
+        if (result.deletedCount > 0) {
+            res.status(204).send();
+        } else {
+            res.status(500).json(result.error || 'An error occurred while deleting the app user.');
+        }
+    } catch (err) {
+        return res.status(500).json({ message: err.message });
+    }    
+};
 
 module.exports = {
     getAllUsers,
     getSingleUser,
-    createAppUser
+    createAppUser,
     // updateAppUsers,
-    // deleteAppUsers
+    deleteAppUser
 }

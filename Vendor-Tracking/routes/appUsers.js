@@ -10,4 +10,6 @@ router.get('/:id', appUsersController.getSingleUser);
 
 router.post('/', validation.saveAppUser, appUsersController.createAppUser);
 
+router.delete('/:id', appUsersController.deleteAppUser);
+
 module.exports = router;
