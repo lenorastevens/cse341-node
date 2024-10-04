@@ -63,7 +63,7 @@
                 "city": {
                   "example": "any"
                 },
-                "state": {
+                "stateCode": {
                   "example": "TX"
                 },
                 "zipCode": {
