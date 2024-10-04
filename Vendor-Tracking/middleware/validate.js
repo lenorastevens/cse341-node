@@ -10,7 +10,7 @@ const saveVendor = (req, res, next) => {
         streetAddress: "required|string|max:100",
         city: "required|string|max:50",
         stateCode: "required|string|max:2",
-        zipCode: "required|integer|digits:5",
+        zipCode: "required|integer|min:10000|max:99999",
         notes: "string|max:300"
     };
 
