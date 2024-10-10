@@ -5,7 +5,7 @@ const app = express();
 const passport = require('passport');
 const session = require('express-session');
 const GitHubStrategy = require('passport-github2').Strategy;
-
+const MongoStore = require('connect-mongo');
 
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
@@ -19,7 +19,12 @@ app
     secret: "secret",
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: true }
+    store: MongoStore.create({
+      mongoUrl: process.env.Mongo_URL,
+      collectionName: 'sessions',
+      ttl: 1 * 24 * 60 * 60
+    }),
+    cookie: { secure: false }
   }))
   .use(passport.initialize())
   .use(passport.session())
