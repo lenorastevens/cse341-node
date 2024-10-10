@@ -20,7 +20,7 @@ app
     resave: false,
     saveUninitialized: true,
     store: MongoStore.create({
-      mongoUrl: process.env.Mongo_URL,
+      mongoUrl: process.env.MONGODB_URL,
       collectionName: 'sessions',
       ttl: 1 * 24 * 60 * 60
     }),
