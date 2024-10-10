@@ -46,7 +46,19 @@ passport.deserializeUser((user, done) => {
   done(null, user);
 });
 
-app.get('/profile', (req, res) => { res.send(req.session.user !== undefined ? `Logged in as ${req.session.user.displayName}` : "Not Logged In")});
+app.get('/profile', (req, res) => {
+  if (req.session.user) {
+    res.send(`Logged in as ${req.session.user.displayName}`);
+  } else{
+    res.send('Not Logged In');
+  }
+});
+
+app.get('/github/callback', passport.authenticate('github', { failureRedirect: '/api-docs', session: true }),  
+  (req, res) => {
+    req.session.user = req.user;
+    res.redirect('/');
+});
 
 mongodb.initDb((err) => {
   if(err) {

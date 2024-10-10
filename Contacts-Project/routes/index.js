@@ -5,11 +5,6 @@ router.use('/contacts', require('./contacts'));
 
 router.get('/login', passport.authenticate('github'), (req, res) => {});
 
-router.get('/github/callback', passport.authenticate('github', { failureRedirect: '/api-docs', session: true }),  (req, res) => {
-    req.session.user = req.user;
-    res.redirect('/api-docs');
-});
-
 router.get('/logout', function(req, res, next) {
   req.logout(function(err) {
     if (err) { return next(err); }
