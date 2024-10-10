@@ -12,8 +12,7 @@ const swaggerDocument = require('./swagger.json');
 
 const port = process.env.PORT || 8080;
 
-app
-  
+app  
   .use(express.json())
   .use(session({
     secret: "secret",
@@ -49,22 +48,6 @@ passport.serializeUser((user, done) => {
 
 passport.deserializeUser((user, done) => {
   done(null, user);
-});
-
-app.get('/profile', (req, res) => {
-  if (req.session.user) {
-    res.send(`Logged in as ${req.session.user.displayName}`);
-  } else{
-    res.send('Not Logged In');
-  }
-});
-
-app.get('/github/callback', passport.authenticate('github', { failureRedirect: '/api-docs' }),  
-  (req, res) => {
-    console.log('Callback route hit');
-    console.log('Authenticated user:', req.user);
-    req.session.user = req.user;
-    res.redirect('/');
 });
 
 mongodb.initDb((err) => {

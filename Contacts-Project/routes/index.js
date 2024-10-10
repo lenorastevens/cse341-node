@@ -1,24 +1,33 @@
 const router = require('express').Router();
 const passport = require('passport');
 
-router.use('/contacts', require('./contacts'));
+router.get('/login', passport.authenticate('github'));
 
-router.get('/login', passport.authenticate('github'), (req, res) => {});
-
-router.get('/logout', function(req, res, next) {
-  req.logout(function(err) {
-    if (err) { return next(err); }
-    res.redirect('/');
+router.get('/logout', (req, res) => {
+  req.logout((err) => {
+    if (err) {
+      return res.status(500).json({ message: "Logout failed" });
+    }
+    res.redirect('/'); 
   });
 });
 
-// router.use('/', (req, res) => {
-//   let docData = `
-//     <h1>Hello, Fall CSE 341. This is my Contacts Project!</h1>
-//     <p>Documentation URL: <a href="https://cse341-contacts-project-ep1p.onrender.com/api-docs" target="_blank">
-//     https://cse341-contacts-project-ep1p.onrender.com/api-docs</a></p>
-//   `;
-//   res.send(docData);
-// });
+router.get('/profile', (req, res) => {
+  if (req.session.user) {
+    res.send(`Logged in as ${req.session.user.displayName}`);
+  } else{
+    res.send('Not Logged In');
+  }
+});
+
+router.get('/github/callback', passport.authenticate('github', { failureRedirect: '/api-docs' }),  
+  (req, res) => {
+    console.log('Callback route hit');
+    console.log('Authenticated user:', req.user);
+    req.session.user = req.user;
+    res.redirect('/');
+});
+
+router.use('/contacts', require('./contacts'));
 
 module.exports = router;
