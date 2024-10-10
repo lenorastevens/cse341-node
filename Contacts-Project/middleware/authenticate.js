@@ -5,4 +5,4 @@ const isAuthenticated = (req, res, next) => {
     next();
 };
 
-MediaSourceHandle.exports = { isAuthenticated }
+module.exports = { isAuthenticated }

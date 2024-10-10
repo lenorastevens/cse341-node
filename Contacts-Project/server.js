@@ -23,8 +23,7 @@ app
   .use(passport.initialize())
   .use(passport.session())
   .use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
-  .use(cors({ methods: ['GET', 'POST', 'DELETE', 'PUT']}))
-  .use(cors({ origin: '*'}))
+  .use(cors({ methods: ['GET', 'POST', 'DELETE', 'PUT'], origin: '*' }))
   .use('/', require('./routes'));
 
 passport.use(new GitHubStrategy({
@@ -38,13 +37,15 @@ function(accessToken, refreshToken, profile, done) {
   //});
 }));
 
-app.get('/', (req, res) => { res.send(req.session.user !== undefined ? `Logged in as ${req.session.user.displayName}` : "Logged Out")});
-
-app.get('/github/callback', passport.authenticate('github', { failureRedirect: '/api-docs', session: false }),
-  (req, res) => {
-    req.session.user = req.user;
-    res.redirect('/');
+passport.serializeUser((user, done) => {
+  done(null, user);
 });
+
+passport.deserializeUser((user, done) => {
+  done(null, user);
+});
+
+app.get('/', (req, res) => { res.send(req.session.user !== undefined ? `Logged in as ${req.session.user.displayName}` : "Logged Out")});
 
 mongodb.initDb((err) => {
   if(err) {
