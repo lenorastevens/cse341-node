@@ -54,8 +54,10 @@ app.get('/profile', (req, res) => {
   }
 });
 
-app.get('/github/callback', passport.authenticate('github', { failureRedirect: '/api-docs', session: true }),  
+app.get('/github/callback', passport.authenticate('github', { failureRedirect: '/login' }),  
   (req, res) => {
+    console.log('Callback route hit');
+    console.log('Authenticated user:', req.user);
     req.session.user = req.user;
     res.redirect('/');
 });
