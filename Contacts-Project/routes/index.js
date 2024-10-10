@@ -10,12 +10,12 @@ router.get('/github/callback', passport.authenticate('github', { failureRedirect
     res.redirect('/');
 });
 
-// router.get('/logout', function(req, res, next) {
-//   req.logout(function(err) {
-//     if (err) { return next(err); }
-//     res.redirect('/');
-//   });
-// });
+router.get('/logout', function(req, res, next) {
+  req.logout(function(err) {
+    if (err) { return next(err); }
+    res.redirect('/');
+  });
+});
 
 // router.use('/', (req, res) => {
 //   let docData = `
