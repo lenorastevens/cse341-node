@@ -19,6 +19,7 @@ app
     secret: "secret",
     resave: false,
     saveUninitialized: true,
+    cookie: { secure: true }
   }))
   .use(passport.initialize())
   .use(passport.session())
@@ -45,7 +46,7 @@ passport.deserializeUser((user, done) => {
   done(null, user);
 });
 
-app.get('/', (req, res) => { res.send(req.session.user !== undefined ? `Logged in as ${req.session.user.displayName}` : "Logged Out")});
+app.get('/profile', (req, res) => { res.send(req.session.user !== undefined ? `Logged in as ${req.session.user.displayName}` : "Not Logged In")});
 
 mongodb.initDb((err) => {
   if(err) {
