@@ -59,7 +59,7 @@ app.get('/profile', (req, res) => {
   }
 });
 
-app.get('/github/callback', passport.authenticate('github', { failureRedirect: '/login' }),  
+app.get('/github/callback', passport.authenticate('github', { failureRedirect: '/api-docs' }),  
   (req, res) => {
     console.log('Callback route hit');
     console.log('Authenticated user:', req.user);
