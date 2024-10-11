@@ -22,12 +22,12 @@
         }
       }
     },
-    "/logout": {
+    "/github/callback": {
       "get": {
         "description": "",
         "responses": {
-          "500": {
-            "description": "Internal Server Error"
+          "default": {
+            "description": ""
           }
         }
       }
@@ -42,12 +42,12 @@
         }
       }
     },
-    "/github/callback": {
+    "/logout": {
       "get": {
         "description": "",
         "responses": {
-          "default": {
-            "description": ""
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }
