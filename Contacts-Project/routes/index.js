@@ -3,13 +3,12 @@ const passport = require('passport');
 
 router.get('/login', passport.authenticate('github'));
 
-router.get('/logout', (req, res) => {
-  req.logout((err) => {
-    if (err) {
-      return res.status(500).json({ message: "Logout failed" });
-    }
-    res.redirect('/'); 
-  });
+router.get('/github/callback', passport.authenticate('github', { failureRedirect: '/login' }),  
+  (req, res) => {
+    console.log('Callback route hit');
+    console.log('Authenticated user:', req.user);
+    req.session.user = req.user;
+    res.redirect('/');
 });
 
 router.get('/profile', (req, res) => {
@@ -20,12 +19,13 @@ router.get('/profile', (req, res) => {
   }
 });
 
-router.get('/github/callback', passport.authenticate('github', { failureRedirect: '/api-docs' }),  
-  (req, res) => {
-    console.log('Callback route hit');
-    console.log('Authenticated user:', req.user);
-    req.session.user = req.user;
-    res.redirect('/');
+router.get('/logout', (req, res) => {
+  req.logout((err) => {
+    if (err) {
+      return res.status(500).json({ message: "Logout failed" });
+    }
+    res.redirect('/'); 
+  });
 });
 
 router.use('/contacts', require('./contacts'));
