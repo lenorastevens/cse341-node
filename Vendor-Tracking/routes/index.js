@@ -24,7 +24,7 @@ router.use('/', (req, res) => {
       <p>Documentation URL: <a href="https://vendor-tracking.onrender.com/api-docs" target="_blank">
       https://vendor-tracking.onrender.com/api-docs</a></p>
 
-      <p>${isAuthenticated ? `Logged in as: ${username}` : 'Logged out'}</p>
+      <p>${isAuthenticated ? `Logged in as: ${req.session.user.displayName}` : 'Logged out'}</p>
 
       <p><a href="/login">Login with GitHub</a></p>
       
