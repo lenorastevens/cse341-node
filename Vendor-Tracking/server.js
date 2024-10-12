@@ -25,13 +25,14 @@ app
     .use('/', require('./routes'));
 
 passport.use(new GitHubStrategy({
-  clientID: process.env.GITHUB_CLIENT_ID,
-  clientSecret: process.env.GITHUB_CLIENT_SECRET,
-  callbackURL: process.env.CALLBACK_URL
-},
-function(accessToken, refreshToken, profile, done) {
-    return done(null, profile);
-}));
+    clientID: process.env.GITHUB_CLIENT_ID,
+    clientSecret: process.env.GITHUB_CLIENT_SECRET,
+    callbackURL: process.env.CALLBACK_URL
+  },
+  function(accessToken, refreshToken, profile, done) {
+      return done(null, profile);
+  }
+));
 
 passport.serializeUser((user, done) => {
   done(null, user);
@@ -42,11 +43,39 @@ passport.deserializeUser((user, done) => {
 });
 
 // app.get('/', (req, res) => { res.send(req.session.user !== undefined ? `Logged in as ${req.session.user.displayName}` : 'Logged Out')});
+app.get('/login', passport.authenticate('github'), (req, res) => {});
 
 app.get('/github/callback', passport.authenticate('github', { failureRedirect: '/api-docs' }),  
   (req, res) => {
     req.session.user = req.user;
     res.redirect('/');
+});
+
+router.get('/logout', (req, res) => {
+  req.logout((err) => {
+    if (err) {
+      return res.status(500).json({ message: "Logout failed" });
+    }
+    res.redirect('/'); 
+  });
+});
+
+app.use('/', (req, res) => {
+  const isAuthenticated = req.isAuthenticated();
+  const username = isAuthenticated ? req.user.username : (req.session.user ? req.session.user.displayName : '');
+
+  let docData = `
+    <h1>Vendor Tracking API</h1>
+    <p>Documentation URL: <a href="https://vendor-tracking.onrender.com/api-docs" target="_blank">
+    https://vendor-tracking.onrender.com/api-docs</a></p>
+
+    <p>${isAuthenticated || req.session.user ? `Logged in as: ${username}` : 'Logged out'}</p>
+
+    <p><a href="/login">Login with GitHub</a></p>
+    
+    <p><a href="/logout">Logout</a></p>
+  `;
+  res.send(docData);
 });
 
 process.on('uncaughtException', (err, origin) => {
