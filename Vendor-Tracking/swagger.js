@@ -12,8 +12,8 @@ const doc = {
     OAuth2: {
       type: 'oauth2',
       flow: 'accessCode',
-      authorizationUrl: '',
-      tokenUrl: '',
+      authorizationUrl: 'https://github.com/login/oauth/authorize',
+      tokenUrl: 'https://github.com/login/oauth/access_token',
       scopes: {
         read: 'Grants read access',
         write: 'Grants write access'
