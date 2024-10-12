@@ -11,7 +11,39 @@
   "schemes": [
     "https"
   ],
+  "securityDefinitions": {
+    "OAuth2": {
+      "type": "oauth2",
+      "flow": "accessCode",
+      "authorizationUrl": "",
+      "tokenUrl": "",
+      "scopes": {
+        "read": "Grants read access",
+        "write": "Grants write access"
+      }
+    }
+  },
   "paths": {
+    "/login": {
+      "get": {
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/logout": {
+      "get": {
+        "description": "",
+        "responses": {
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
     "/vendors/": {
       "get": {
         "tags": [

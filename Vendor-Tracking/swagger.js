@@ -7,7 +7,19 @@ const doc = {
     author: 'Lenora Stevens'
   },
   host: 'vendor-tracking.onrender.com',
-  schemes: ['https']
+  schemes: ['https'],
+  securityDefinitions: {
+    OAuth2: {
+      type: 'oauth2',
+      flow: 'accessCode',
+      authorizationUrl: '',
+      tokenUrl: '',
+      scopes: {
+        read: 'Grants read access',
+        write: 'Grants write access'
+      }
+    }
+  }
 };
 
 const outputFile = './swagger.json';
