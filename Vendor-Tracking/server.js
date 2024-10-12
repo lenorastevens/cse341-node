@@ -16,7 +16,7 @@ app
     .use(session({
         secret: "secret",
         resave: false,
-        saveUninitialized: true
+        saveUninitialized: true,
     }))
     .use(passport.initialize())
     .use(passport.session())
@@ -24,15 +24,13 @@ app
     .use(cors({ methods: ['GET', 'POST', 'DELETE', 'PUT'], origin: '*' }))
     .use('/', require('./routes'));
 
-    passport.use(new GitHubStrategy({
+passport.use(new GitHubStrategy({
   clientID: process.env.GITHUB_CLIENT_ID,
   clientSecret: process.env.GITHUB_CLIENT_SECRET,
   callbackURL: process.env.CALLBACK_URL
 },
 function(accessToken, refreshToken, profile, done) {
-  //User.findOrCreate({ githubId: profile.id }, function (err, user) {
     return done(null, profile);
-  //});
 }));
 
 passport.serializeUser((user, done) => {
@@ -45,7 +43,7 @@ passport.deserializeUser((user, done) => {
 
 app.get('/', (req, res) => { res.send(req.session.user !== undefined ? `Logged in as ${req.session.user.displayName}` : 'Logged Out')});
 
-app.get('/github/callback', passport.authenticate('github', { failureRedirect: '/api-docs', session: false }),  
+app.get('/github/callback', passport.authenticate('github', { failureRedirect: '/api-docs' }),  
   (req, res) => {
     req.session.user = req.user;
     res.redirect('/');
