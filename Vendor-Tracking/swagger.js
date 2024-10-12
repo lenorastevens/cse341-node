@@ -8,18 +8,6 @@ const doc = {
   },
   host: 'vendor-tracking.onrender.com',
   schemes: ['https'],
-  securityDefinitions: {
-    OAuth2: {
-      type: 'oauth2',
-      flow: 'accessCode',
-      authorizationUrl: 'https://github.com/login/oauth/authorize',
-      tokenUrl: 'https://github.com/login/oauth/access_token',
-      scopes: {
-        read: 'Grants read access',
-        write: 'Grants write access'
-      }
-    }
-  }
 };
 
 const outputFile = './swagger.json';
