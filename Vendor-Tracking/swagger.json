@@ -67,7 +67,7 @@
                   "example": "TX"
                 },
                 "zipCode": {
-                  "example": 12345
+                  "example": "12345"
                 },
                 "notes": {
                   "example": "any"
@@ -79,6 +79,9 @@
         "responses": {
           "201": {
             "description": "Vendor Created"
+          },
+          "401": {
+            "description": "Unauthorized"
           },
           "412": {
             "description": "Precondition Failed"
@@ -180,6 +183,9 @@
           "400": {
             "description": "Bad Request"
           },
+          "401": {
+            "description": "Unauthorized"
+          },
           "412": {
             "description": "Precondition Failed"
           },
@@ -207,6 +213,9 @@
           },
           "400": {
             "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
           },
           "500": {
             "description": "Internal Server Error"
@@ -263,6 +272,9 @@
         "responses": {
           "201": {
             "description": "App User Created"
+          },
+          "401": {
+            "description": "Unauthorized"
           },
           "412": {
             "description": "Precondition Failed"
@@ -346,6 +358,9 @@
           "400": {
             "description": "Bad Request"
           },
+          "401": {
+            "description": "Unauthorized"
+          },
           "412": {
             "description": "Precondition Failed"
           },
@@ -373,6 +388,9 @@
           },
           "400": {
             "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
           },
           "500": {
             "description": "Internal Server Error"

@@ -7,7 +7,6 @@ const doc = {
     author: 'Lenora Stevens'
   },
   host: 'vendor-tracking.onrender.com',
-  // host: 'locoalhost:8080',
   schemes: ['https']
 };
 
